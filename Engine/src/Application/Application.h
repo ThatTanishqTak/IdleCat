@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "Layer/Layer.h"
+#include "Camera/Camera.h"
 
 #include <string>
 
@@ -22,5 +23,6 @@ namespace Engine
 		std::string m_Title;
 
 		Layer* m_Layer;
+		Camera m_Camera;
 	};
 }

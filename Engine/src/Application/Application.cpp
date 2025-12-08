@@ -1,9 +1,11 @@
-#include "Application.h"
+#include "Application/Application.h"
 
 namespace Engine
 {
 	Application::Application(int width, int height, const std::string& title, Layer* layer) : m_Width(width), m_Height(height), m_Title(title), m_Layer(layer)
 	{
+		SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+
 		InitWindow(m_Width, m_Height, m_Title.c_str());
 		SetTargetFPS(60);
 
@@ -30,11 +32,19 @@ namespace Engine
 			}
 
 			BeginDrawing();
-			ClearBackground(GRAY);
+			ClearBackground(BLACK);
+			BeginMode3D(m_Camera.GetCamera());
 
 			if (m_Layer)
 			{
-				m_Layer->OnRender();
+				m_Layer->OnSceneRender();
+			}
+
+			EndMode3D();
+
+			if (m_Layer)
+			{
+				m_Layer->OnInterfaceRender();
 			}
 
 			EndDrawing();

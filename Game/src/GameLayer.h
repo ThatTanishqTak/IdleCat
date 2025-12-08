@@ -21,7 +21,8 @@ namespace Game
 
 		void OnInitialize() override;
 		void OnUpdate(float deltaTime) override;
-		void OnRender() override;
+		void OnSceneRender() override;
+		void OnInterfaceRender() override;
 
 		static GameConfig GetGameConfig();
 	};

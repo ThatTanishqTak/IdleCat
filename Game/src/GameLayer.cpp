@@ -14,9 +14,15 @@ namespace Game
 		// Update game logic here
 	}
 
-	void GameLayer::OnRender()
+	void GameLayer::OnSceneRender()
 	{
-		// Draw game here
+		// Draw game scene here
+		DrawCube({ 10.0f, 10.0f, 10.0f }, 10.0f, 10.0f, 10.0f, RED);
+	}
+
+	void GameLayer::OnInterfaceRender()
+	{
+		// Draw user interface here
 	}
 
 	GameConfig GameLayer::GetGameConfig()
